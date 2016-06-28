@@ -45,5 +45,3 @@ var Error = function() {
 }();
 
 Error.listener();
-
-var test = a++;
