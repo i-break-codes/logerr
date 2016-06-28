@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ejs - Readable JavaScript Errors</title>
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> 
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="logo">
+        <h1>e<span>js</espan></h1>
+      </div>
+      <p>Experimenting with <span class="inline-code">window.onerror</span>, trying to make JavaScript debugging easy.</p>
+      
+      <section>
+        <h3>What does it do?</h3>
+        <p>As of now, it provides JavaScript error details in a readable format. Planning to add more functionality later where turning on the debugging mode will throw error details on the screen.</p>
+      </section>
+      
+      <section>
+        <h3>Example</h3>
+        <p>Lets take a simple code snippet which will raise an exception.</p>
+        
+        <code>
+          var test = a + 1; <span class="code-comment">//a is not defined</span>
+        </code>
+        <hr>
+        <p>
+          Instead of javascript throwing <span class="inline-code">Uncaught ReferenceError: a is not defined</span>, using ejs will output something like
+        </p>
+        <code>
+<div class="ejs-output">  <span>Type</span>: <span class="color-red">error</span>
+  <span>Error</span>: <span class="color-red">Uncaught ReferenceError: a is not defined</span>
+  <span>File Name</span>: ejs.js
+  <span>Path</span>: http://localhost:8888/ejs/ejs.js
+  <span>Line</span>: 51
+  <span>Column</span>: 12
+  <span>Date</span>: Tue Jun 28 2016 19:51:22 GMT+0530 (IST)
+  <span>Debug</span>: http://localhost:8888/ejs/ejs.js:51
+  <span>Get Help</span>: <span class="color-blue">https://stackoverflow.com/search?q=Uncaught+ReferenceError:+a+is+not+defined</span>
+</div>
+          </span>
+        </code>
+      </section>
+    </div>
+    
+    <script src="ejs.js"></script>
+  </body>
+</html>

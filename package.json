@@ -1,0 +1,29 @@
+{
+  "name": "ejs",
+  "version": "1.0.0",
+  "description": "JavaScript Error Handling made better.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "sass": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-break-codes/ejs.git"
+  },
+  "keywords": [
+    "javascript",
+    "error handling"
+  ],
+  "author": "Vaibhav Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i-break-codes/ejs/issues"
+  },
+  "homepage": "https://github.com/i-break-codes/ejs#readme"
+}
