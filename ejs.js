@@ -1,3 +1,5 @@
+'use strict';
+
 var Error = function() {
   function listener() {
     window.addEventListener('error', function(e) {
@@ -24,16 +26,16 @@ var Error = function() {
   
   function _formatError(errorInfo) {
     var i = errorInfo;
-    var helpPath = encodeURI("http://stackoverflow.com/search?q=" + i.error.split(' ').join('+'));
+    var helpPath = encodeURI("https://stackoverflow.com/search?q=" + i.error.split(' ').join('+'));
     
-    var str = "%cType: %c" + i.type + 
-              "\n%cError: %c" + i.error +
-              "\n%cFile Name: %c" + i.filename +
-              "\n%cPath: %c" + i.path +
-              "\n%cLine: %c" + i.line +
-              "\n%cColumn: %c" + i.column +
-              "\n%cDate: %c" + i.datetime +
-              "\n%cDebug : %c" + i.path + ':' + i.line +
+    var str = "%cType: %c" + i.type
+            + "\n%cError: %c" + i.error
+            + "\n%cFile Name: %c" + i.filename
+            + "\n%cPath: %c" + i.path
+            + "\n%cLine: %c" + i.line
+            + "\n%cColumn: %c" + i.column
+            + "\n%cDate: %c" + i.datetime
+            + "\n%cDebug : %c" + i.path + ':' + i.line
               "\n%cGet Help: " + "%c" + helpPath;
   
     console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;",  "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
