@@ -36,9 +36,9 @@ var Error = function() {
             + "\n%cColumn: %c" + i.column
             + "\n%cDate: %c" + i.datetime
             + "\n%cDebug : %c" + i.path + ':' + i.line
-              "\n%cGet Help: " + "%c" + helpPath;
+            + "\n%cGet Help: " + "%c" + helpPath;
   
-    console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;",  "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
+    console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
   }
   
   return {
@@ -47,3 +47,5 @@ var Error = function() {
 }();
 
 Error.listener();
+
+var test = a + 1;
