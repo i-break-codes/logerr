@@ -4,6 +4,7 @@ Playing with console errors, experimental project.
 ### Install
 Just include `ejs.js` file in the `<head>` section of your page, before you include any other JavaScript.
 
+    ```javascript
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -13,6 +14,7 @@ Just include `ejs.js` file in the `<head>` section of your page, before you incl
         Am fancy
       </body>
     </html>
+    ```
 
 ### What does it do?
 Provides JavaScript error details in a readable format.
