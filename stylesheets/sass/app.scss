@@ -18,6 +18,11 @@ body {
   line-height: 21px;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 p {
   text-align: center;
   margin: auto;
@@ -118,4 +123,27 @@ hr {
   margin: 60px;
   border: 0;
   border-bottom: 1px solid #ddd;
+}
+
+.view-on-github {
+  padding: 5px 10px;
+  margin: 40px 0;
+  font-size: 12px;
+  margin-top: 20px;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #818181;
+  
+  img {
+    position: relative;
+    top: -2px;
+    margin-right: 2px;
+    vertical-align: middle;
+    max-width: 16px;
+  }
+  
+  &:hover {
+    border-color: transparent;
+  }
 }
