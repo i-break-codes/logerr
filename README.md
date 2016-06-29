@@ -4,17 +4,17 @@ Playing with console errors, experimental project.
 ### Install
 Just include `ejs.js` file in the `<head>` section of your page, before you include any other JavaScript.
 
-    ```javascript
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <script src="ejs.js"></script> <!-- Script goes here -->
-      </head>
-      <body>
-        Am fancy
-      </body>
-    </html>
-    ```
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="ejs.js"></script> <!-- Script goes here -->
+  </head>
+  <body>
+    Am fancy
+  </body>
+</html>
+```
 
 ### What does it do?
 Provides JavaScript error details in a readable format.
