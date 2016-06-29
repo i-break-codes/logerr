@@ -29,7 +29,7 @@ gulp.task('sass', function () {
   gulp.src(paths.styles.files)
   .pipe(sass({
     outputStyle: 'compressed', //:nested, :compact, :expanded, :compressed
-    sourceComments: 'map',
+    // sourceComments: 'map',
     includePaths : [paths.styles.src]
   }))
   .on('error', function(err){
