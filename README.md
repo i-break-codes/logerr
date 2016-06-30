@@ -24,4 +24,4 @@ Provides JavaScript error details in a readable format.
 
 ### Support
 - Bugs and requests, submit them through the project's issues section
-- Questions? DM or Tweet me [@insanecoding](https://twitter.com/insanecoding)
+- Questions? DM or Tweet me [@mr_ali3n](https://twitter.com/mr_ali3n)
