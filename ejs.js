@@ -2,9 +2,11 @@
 
 var Error = function() {
   function listener() {
-    window.addEventListener('error', function(e) {
-      _errorData(e);
-    });
+    window.addEventListener('error', _errorData);
+  }
+
+  function stop() {
+    window.removeEventListener('error', _errorData);
   }
 
   function _errorData(e) {
@@ -44,8 +46,11 @@ var Error = function() {
   }
 
   return {
-    listener: listener
+    listener: listener,
+    stop: stop
   }
 }();
 
 Error.listener();
+Error.stop();
+throw "test";
