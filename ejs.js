@@ -52,5 +52,3 @@ var Error = function() {
 }();
 
 Error.listener();
-Error.stop();
-throw "test";
