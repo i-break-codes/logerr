@@ -118,9 +118,4 @@ var Error = function() {
   }
 }();
 
-Error.init({
-  remoteLogging: true,
-  remoteSettings: {
-    url: 'http://localhost:4000/push/local'
-  }
-});
+Error.init();
