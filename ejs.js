@@ -32,27 +32,24 @@ var Error = function() {
     setConfig = Object.assign(config, userConfig);
     
     //Remove current listener
-    window.removeEventListener('error', _listener );
+    window.removeEventListener('error', _listener);
+    
     // Listen to errors
-    window.addEventListener('error', _listener );
+    window.addEventListener('error', _listener);
   }
   
   // NOTE: Private
   function _listener(e) {
-      if(setConfig.detailedErrors) {
-        _detailedErrors(e);
-      }
-      
-      if(setConfig.remoteLogging) {
-        _remoteLogging(e, setConfig.remoteSettings);
-      }
+    if(setConfig.detailedErrors) {
+      _detailedErrors(e);
     }
-
-  function _detailedErrors(e) {
-    _formatError(e);
+    
+    if(setConfig.remoteLogging) {
+      _remoteLogging(e, setConfig.remoteSettings);
+    }
   }
 
-  function _formatError(e) {
+  function _detailedErrors(e) {
     var i = _errorData(e);
     var helpPath = encodeURI("https://stackoverflow.com/search?q=" + i.error.split(' ').join('+'));
 
