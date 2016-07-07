@@ -1,9 +1,18 @@
+/**
+ * ejs
+ *
+ * @category   ejs
+ * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
+ * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version    1.0.0 Beta
+ */
+ 
 'use strict';
 
 var Error = function() {
   
   function init(userConfig = {}) {
-  
     // Default configuration
     var config = {
       detailedErrors: true,
@@ -32,7 +41,6 @@ var Error = function() {
   }
   
   // NOTE: Private
-  
   function _detailedErrors(e) {
     _formatError(e);
   }
