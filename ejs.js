@@ -14,10 +14,10 @@ var Error = function() {
   
   var setConfig;
 
-  function init(userConfig = {}) {
+  function init(userConfig = {}) {  
     
-  // Default configuration
-  var config = {
+    // Default configuration
+    var config = {
       detailedErrors: true,
       remoteLogging: false,
       remoteSettings: {
