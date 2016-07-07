@@ -59,7 +59,7 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 ```
 
 #### Roadmap
-- [✓] Enable/Disable debugging mode.
+- [✓] Enable/Disable detailedErrors mode in console.
 - [✓] Remote logging
 - [✗] Add extra parameter to console with a bug report link where stacktrace will be passed as GET params to the desired action/controller where developer can log their bugs.
 - [✗] Add notifications on the page if exception raises.
