@@ -117,5 +117,3 @@ var Error = function() {
     init: init
   }
 }();
-
-Error.init();
