@@ -5,7 +5,7 @@ Playing with console errors, experimental project. Developing for Chrome, might 
 Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of ejs. By enabling `remoteLogging`, ejs will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
 
 #### Install
-Just include `ejs.js` file in the `<head>` section of your page, before you include any other JavaScript.
+Just include `ejs.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize ejs, use `Error.init()`
 
 ```html
 <!DOCTYPE html>
