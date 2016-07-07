@@ -19,33 +19,89 @@
       
       <section>
         <h3>What does it do?</h3>
-        <p>As of now, it provides JavaScript error details in a readable format. Planning to add more functionality later where turning on the debugging mode will throw error details on the screen.</p>
+        <p>
+          Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling <span class="inline-code">remoteLogging</span> feature of ejs. By enabling <span class="inline-code">remoteLogging</span>, ejs will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
+        </p>
       </section>
       
       <section>
         <h3>Example</h3>
         <p>Lets take a simple code snippet which will raise an exception.</p>
         
-        <code>
-          var test = a + 1; <span class="code-comment">//a is not defined</span>
-        </code>
+        <code class="text-center">var test = a + 1; <span class="code-comment">//a is not defined</span></code>
         <hr>
         <p>
           Instead of javascript throwing <span class="inline-code">Uncaught ReferenceError: a is not defined</span>, using ejs will output something like
         </p>
-        <code>
-<div class="ejs-output">  <span>Type</span>: <span class="color-red">error</span>
-  <span>Error</span>: <span class="color-red">Uncaught ReferenceError: a is not defined</span>
-  <span>File Name</span>: ejs.js
-  <span>Path</span>: http://localhost:8888/ejs/ejs.js
-  <span>Line</span>: 51
-  <span>Column</span>: 12
-  <span>Date</span>: Tue Jun 28 2016 19:51:22 GMT+0530 (IST)
-  <span>Debug</span>: http://localhost:8888/ejs/ejs.js:51
-  <span>Get Help</span>: <span class="color-blue">https://stackoverflow.com/search?q=Uncaught+ReferenceError:+a+is+not+defined</span>
-</div>
-          </span>
-        </code>
+        <code><div class="ejs-output"><span>Type</span>: <span class="color-red">error</span>
+<span>Error</span>: <span class="color-red">Uncaught ReferenceError: a is not defined</span>
+<span>File Name</span>: ejs.js
+<span>Path</span>: http://localhost:8888/ejs/ejs.js
+<span>Line</span>: 51
+<span>Column</span>: 12
+<span>Date</span>: Tue Jun 28 2016 19:51:22 GMT+0530 (IST)
+<span>Debug</span>: http://localhost:8888/ejs/ejs.js:51
+<span>Get Help</span>: <span class="color-blue">https://stackoverflow.com/search?q=Uncaught+ReferenceError:+a+is+not+defined</span>
+</div></code>
+      </section>
+      
+      <hr>
+      
+      <section>
+        <h3>Install</h3>
+        Just include <span class="inline-code">ejs.js</span> file in the <span class="inline-code">&lt;head&gt;</span> section of your page, before you include any other JavaScript.
+        To initialize ejs, use <span class="inline-code">Error.init()</span>
+        
+        <code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;<span class="inline-code">ejs.js</span>&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      <span class="inline-code">Error.init();</span>
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Am fancy
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+      </section>
+      
+      <hr>
+      
+      <section>
+        <h3>Enable Remote Logging</h3>
+        <blockquote>Make sure you have CORS enabled if logging cross-domain.</blockquote>
+<code>Error.init({
+  remoteLogging: true,
+  remoteSettings: {
+    url: 'REMOTE_URL',
+    additionalParams: {
+      logged_by: 'Sam'
+    },
+    successCallback: function () {
+      console.log('Im logged.');
+    },
+    errorCallback: function () {
+      console.log('Err! Something went wrong.');
+    }
+  }
+});
+</code>
+      </section>
+      
+      <hr>
+      
+      <section>
+        <h3>Default Configuration &amp; Datatypes</h3>
+        
+<code>detailedErrors: true          <span class="code-comment">//Boolean true/false, Optional</span>
+remoteLogging: false          <span class="code-comment">//Boolean true/false, Optional</span>
+remoteSettings: {             <span class="code-comment">//Object {}, required if remoteLogging is set to true</span>
+  url: null,                  <span class="code-comment">//String '', required if remoteLogging is set to true</span>
+  additionalParams: null,     <span class="code-comment">//Object {}, optional</span>
+  successCallback: null,      <span class="code-comment">//function() {}, optional</span>
+  errorCallback: null         <span class="code-comment">//function() {}, optional</span>
+}</code>
       </section>
     </div>
     

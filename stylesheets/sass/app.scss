@@ -54,11 +54,14 @@ code,
 
 code {
   display: block;
+  overflow: auto;
   color: #515151;
   padding: 20px;
   margin-top: 20px;
   border-radius: 3px;
   border: 1px solid #e5e5e5;
+  white-space: pre;
+  text-align: left;
   
   .code-comment {
     color: #aaa;
@@ -90,13 +93,8 @@ section {
 }
 
 .ejs-output {
-  white-space: pre;
-  overflow: auto;
-  text-align: left;
-  display: block;
   font-size: 12px;
   color: #777;
-  padding-left: 10px;
   
   span {
     font-weight: 600;
@@ -110,6 +108,16 @@ section {
   .color-blue {
     color: #3498db;
   }
+}
+
+blockquote {
+  font-family: Open Sans;
+  padding: 10px;
+  margin: 0;
+  background-color: #eee;
+  text-align: left;
+  margin-top: 20px;
+  border-left: 5px solid #e5e5e5;
 }
 
 .special-comment {
@@ -146,4 +154,8 @@ hr {
   &:hover {
     border-color: transparent;
   }
+}
+
+.text-center {
+  text-align: center;
 }
