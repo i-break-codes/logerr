@@ -52,6 +52,7 @@ var Error = function() {
     var str = [
       "%cType: %c" + i.type,
       "%cError: %c" + i.error,
+      "%cStackTrace: %c" + i.stackTrace,
       "%cFile Name: %c" + i.filename,
       "%cPath: %c" + i.path,
       "%cLine: %c" + i.line,
@@ -61,7 +62,7 @@ var Error = function() {
       "%cGet Help: " + "%c" + helpPath
     ].join("\n");
 
-    console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
+    console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;","font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
   }
   
   function _remoteLogging(e, remoteSettings) {
@@ -117,6 +118,7 @@ var Error = function() {
       line: e.lineno,
       column: e.colno,
       error: e.message,
+      stackTrace: e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,""),
       datetime: datetime
     }
   }
