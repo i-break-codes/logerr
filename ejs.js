@@ -1,31 +1,52 @@
+/**
+ * ejs
+ *
+ * @category   ejs
+ * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
+ * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version    1.0.0 Beta
+ */
+ 
 'use strict';
 
 var Error = function() {
-  function listener() {
+  
+  function init(userConfig = {}) {
+    // Default configuration
+    var config = {
+      detailedErrors: true,
+      remoteLogging: false,
+      remoteSettings: {
+        url: null,
+        additionalParams: null,
+        successCallback: null,
+        errorCallback: null
+      }
+    }
+    
+    // Override with user config
+    var setConfig = Object.assign(config, userConfig);
+    
+    // Listen to errors
     window.addEventListener('error', function(e) {
-      _errorData(e);
+      if(setConfig.detailedErrors) {
+        _detailedErrors(e);
+      }
+      
+      if(setConfig.remoteLogging) {
+        _remoteLogging(e, setConfig.remoteSettings);
+      }
     });
   }
-
-  function _errorData(e) {
-    var filename = e.filename.lastIndexOf('/');
-    var datetime = new Date();
-
-    var data = {
-      type: e.type,
-      path: e.filename,
-      filename: e.filename.substring(++filename),
-      line: e.lineno,
-      column: e.colno,
-      error: e.message,
-      datetime: datetime
-    }
-
-    _formatError(data);
+  
+  // NOTE: Private
+  function _detailedErrors(e) {
+    _formatError(e);
   }
 
-  function _formatError(errorInfo) {
-    var i = errorInfo;
+  function _formatError(e) {
+    var i = _errorData(e);
     var helpPath = encodeURI("https://stackoverflow.com/search?q=" + i.error.split(' ').join('+'));
 
     var str = [
@@ -42,12 +63,69 @@ var Error = function() {
 
     console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
   }
+  
+  function _remoteLogging(e, remoteSettings) {
+    if(!remoteSettings.url) {
+      throw 'Provide remote URL to log errors remotely';
+      return false;
+    } else if(remoteSettings.additionalParams && typeof remoteSettings.additionalParams !== 'object') {
+      throw 'Invalid data type, additionalParams should be a valid object';
+      return false;
+    }
+    
+    var http = new XMLHttpRequest();
+    var url = remoteSettings.url;
+    var data = _errorData(e);
+    var setData = Object.assign(data, remoteSettings.additionalParams);
+    var params = _serializeData(setData);
+    
+    http.open("POST", url, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(params);
 
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        if (http.readyState == XMLHttpRequest.DONE) {
+          if(remoteSettings.successCallback) {
+            remoteSettings.successCallback();
+          }
+        } else {
+          if(remoteSettings.errorCallback) {
+            remoteSettings.errorCallback();
+          } else {
+            throw 'Remote error logging failed!';
+          }
+        }
+      }
+    }
+  }
+  
+  function _serializeData(params) {
+    return Object.keys(params).map(function(k) {
+      return encodeURIComponent(k) + "=" + encodeURIComponent(params[k]);
+    }).join('&');
+  }
+  
+  function _errorData(e) {
+    var filename = e.filename.lastIndexOf('/');
+    var datetime = new Date().toString();
+
+    return {
+      type: e.type,
+      path: e.filename,
+      filename: e.filename.substring(++filename),
+      line: e.lineno,
+      column: e.colno,
+      error: e.message,
+      datetime: datetime
+    }
+  }
+  
   return {
-    listener: listener
+    init: init
   }
 }();
 
-Error.listener();
+Error.init();
 
 var test = a + 1;
