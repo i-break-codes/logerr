@@ -1,6 +1,9 @@
 # logerr
 Logerr or Log Error. Playing with console errors, experimental project. Developing for Chrome, might fail on other browsers as of now.
 
+#### Online Demo
+[View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
+
 #### What does it do?
 Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of logerr. By enabling `remoteLogging`, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
 
@@ -73,9 +76,6 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 - [✗] Add stacktrace to these notifications.
 
 ...will add some more stuff to make debugging easy.
-
-#### Online Demo
-[View](https://i-break-codes.github.io/logerr/)
 
 #### Support
 - Bugs and requests, submit them through the project's issues section
