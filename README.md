@@ -1,4 +1,4 @@
-# ejs
+# logerr
 Playing with console errors, experimental project. Developing for Chrome, might fail on other browsers as of now.
 
 #### What does it do?
