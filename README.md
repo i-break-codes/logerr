@@ -1,19 +1,19 @@
 # logerr
-Playing with console errors, experimental project. Developing for Chrome, might fail on other browsers as of now.
+Logerr or Log Error. Playing with console errors, experimental project. Developing for Chrome, might fail on other browsers as of now.
 
 #### What does it do?
-Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of ejs. By enabling `remoteLogging`, ejs will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
+Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of logerr. By enabling `remoteLogging`, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
 
 #### Install
-Just include `ejs.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize ejs, use `Error.init()`
+Just include `logerr.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize logerr, use `Error.init()`
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="ejs.js"></script>
+    <script src="logerr.js"></script>
 	<script>
-	  Error.init();
+	  Logerr.init();
 	</script>
   </head>
   <body>
@@ -28,7 +28,7 @@ Just include `ejs.js` file in the `<head>` section of your page, before you incl
 ```javascript
 //Request type is POST
 
-Error.init({
+Logerr.init({
   remoteLogging: true,
   remoteSettings: {
     url: 'REMOTE_URL',
@@ -68,7 +68,7 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 ...will add some more stuff to make debugging easy.
 
 #### Online Demo
-[View](https://i-break-codes.github.io/ejs/)
+[View](https://i-break-codes.github.io/logerr/)
 
 #### Support
 - Bugs and requests, submit them through the project's issues section

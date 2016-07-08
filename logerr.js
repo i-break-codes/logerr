@@ -1,7 +1,7 @@
 /**
- * ejs
+ * logerr
  *
- * @category   ejs
+ * @category   logerr
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -10,7 +10,7 @@
  
 'use strict';
 
-var Error = function() {
+var Logerr = function() {
   
   var setConfig;
 
