@@ -4,18 +4,28 @@ Logerr or Log Error. Playing with console errors, experimental project. Developi
 #### Online Demo
 [View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
 
+---
+
 #### What does it do?
 Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of logerr. By enabling `remoteLogging`, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
 
-#### Add lib via Bower
+---
+
+#### Install via :- 
+
+#### [Bower](https://bower.io/)
 > bower install logerr
 
-For more information on [bower](https://bower.io/).
+#### Manually
 
-Or just download `logerr.js` manually and follow the setup instructions below.
+Download `logerr.js` and follow the setup instructions below.
+
+---
 
 #### Setup
 Just include `logerr.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize logerr, use `Logerr.init()`
+
+Initialize it before you include other JavaScript on your page.
 
 ```html
 <!DOCTYPE html>
@@ -31,6 +41,8 @@ Just include `logerr.js` file in the `<head>` section of your page, before you i
   </body>
 </html>
 ```
+
+---
 
 #### Enable remote logging
 > Make sure you have CORS enabled if logging cross-domain.
@@ -55,6 +67,8 @@ Logerr.init({
 });
 ```
 
+---
+
 #### Default Configuration & Datatypes
 ```javascript
 detailedErrors: true          //Boolean true/false, Optional
@@ -68,6 +82,8 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 
 ```
 
+---
+
 #### Roadmap
 - [✓] Enable/Disable detailedErrors mode in console.
 - [✓] Remote logging
@@ -77,6 +93,10 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 
 ...will add some more stuff to make debugging easy.
 
+---
+
 #### Support
 - Bugs and requests, submit them through the project's issues section
 - Questions? DM or Tweet me [@mr_ali3n](https://twitter.com/mr_ali3n)
+
+Thanks to all contributors, stargazers, pr's, issue submissions for suggesting features and making this more awesome.
