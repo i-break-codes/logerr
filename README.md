@@ -9,7 +9,7 @@ Provides JavaScript error details in a readable format. Recently added a feature
 
 For more information on [bower](https://bower.io/).
 
-Or just download logerr.js manually and follow the setup instructions below.
+Or just download `logerr.js` manually and follow the setup instructions below.
 
 #### Setup
 Just include `logerr.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize logerr, use `Logerr.init()`
