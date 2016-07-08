@@ -1,7 +1,7 @@
 /**
- * ejs
+ * logerr
  *
- * @category   ejs
+ * @category   logerr
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -10,9 +10,12 @@
  
 'use strict';
 
-var Error = function() {
+var Logerr = function() {
   
-  function init(userConfig = {}) {
+  var setConfig;
+
+  function init(userConfig = {}) {  
+    
     // Default configuration
     var config = {
       detailedErrors: true,
@@ -24,28 +27,29 @@ var Error = function() {
         errorCallback: null
       }
     }
-    
+
     // Override with user config
-    var setConfig = Object.assign(config, userConfig);
+    setConfig = Object.assign(config, userConfig);
+    
+    //Remove current listener
+    window.removeEventListener('error', _listener);
     
     // Listen to errors
-    window.addEventListener('error', function(e) {
-      if(setConfig.detailedErrors) {
-        _detailedErrors(e);
-      }
-      
-      if(setConfig.remoteLogging) {
-        _remoteLogging(e, setConfig.remoteSettings);
-      }
-    });
+    window.addEventListener('error', _listener);
   }
   
   // NOTE: Private
-  function _detailedErrors(e) {
-    _formatError(e);
+  function _listener(e) {
+    if(setConfig.detailedErrors) {
+      _detailedErrors(e);
+    }
+    
+    if(setConfig.remoteLogging) {
+      _remoteLogging(e, setConfig.remoteSettings);
+    }
   }
 
-  function _formatError(e) {
+  function _detailedErrors(e) {
     var i = _errorData(e);
     var helpPath = encodeURI("https://stackoverflow.com/search?q=" + i.error.split(' ').join('+'));
 
