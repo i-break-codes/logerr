@@ -37,9 +37,10 @@ h3 {
 }
 
 .wrapper {
-  max-width: 560px;
+  max-width: 680px;
   margin: auto;
   text-align: center;
+  padding: 0 40px;
 }
 
 code,
@@ -158,4 +159,14 @@ hr {
 
 .text-center {
   text-align: center;
+}
+
+@media all and (max-width: 512px) {
+  .wrapper {
+    padding: 0 20px;
+    
+    p {
+      text-align: left;
+    }
+  }
 }
