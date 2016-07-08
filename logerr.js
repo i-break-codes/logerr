@@ -132,6 +132,6 @@ var Logerr = function() {
   }
 }();
 
-Error.init();
+Logerr.init();
 
 var test = a + 1;
