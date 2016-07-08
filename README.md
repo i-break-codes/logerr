@@ -4,19 +4,21 @@ Logerr or Log Error. Playing with console errors, experimental project. Developi
 #### What does it do?
 Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of logerr. By enabling `remoteLogging`, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
 
-#### Install via Bower
+#### Add lib via Bower
 > bower install logerr
 
 For more information on [bower](https://bower.io/).
 
-#### Install
+Or just download logerr.js manually and follow the setup instructions below.
+
+#### Setup
 Just include `logerr.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize logerr, use `Logerr.init()`
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="logerr.js"></script>
+    <script src="logerr.js"></script> <!-- path will be different is using bower -->
 	<script>
 	  Logerr.init();
 	</script>
