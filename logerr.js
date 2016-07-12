@@ -5,7 +5,7 @@
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version    1.0.0 Beta
+ * @version    1.0.1 Beta
  */
  
 'use strict';
@@ -14,7 +14,8 @@ var Logerr = function() {
   
   var setConfig;
 
-  function init(userConfig = {}) {  
+  function init(userConfig) {
+    if(!userConfig) userConfig = {};
     
     // Default configuration
     var config = {
@@ -122,9 +123,31 @@ var Logerr = function() {
       line: e.lineno,
       column: e.colno,
       error: e.message,
-      stackTrace: e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,""),
+      stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
       datetime: datetime
     }
+  }
+  
+  //Polyfill for Object.assign
+  if (typeof Object.assign != 'function') {
+    Object.assign = function(target) {
+      if (target == null) {
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      target = Object(target);
+      for (var index = 1; index < arguments.length; index++) {
+        var source = arguments[index];
+        if (source != null) {
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+      }
+      return target;
+    };
   }
   
   return {
