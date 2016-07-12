@@ -64,6 +64,10 @@ code {
   white-space: pre;
   text-align: left;
   
+  .inline-code {
+    padding: 0;
+  }
+  
   .code-comment {
     color: #aaa;
   }
@@ -159,6 +163,15 @@ hr {
 
 .text-center {
   text-align: center;
+}
+
+.logerr-output {
+  span {
+    &:nth-child(odd) {
+      color: #313131;
+      font-weight: bold;
+    }
+  }
 }
 
 @media all and (max-width: 512px) {
