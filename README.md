@@ -31,7 +31,7 @@ Initialize it before you include other JavaScript on your page.
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="logerr.js"></script> <!-- path will be different is using bower -->
+    <script src="logerr.js"></script>
 	<script>
 	  Logerr.init();
 	</script>
@@ -71,8 +71,8 @@ Logerr.init({
 
 #### Default Configuration & Datatypes
 ```javascript
-detailedErrors: true          //Boolean true/false, Optional
-remoteLogging: false          //Boolean true/false, Optional
+detailedErrors: true          //Boolean true/false, optional
+remoteLogging: false          //Boolean true/false, optional
 remoteSettings: {             //Object {}, required if remoteLogging is set to true
   url: null,                  //String '', required if remoteLogging is set to true
   additionalParams: null,     //Object {}, optional
@@ -87,9 +87,9 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 #### Roadmap
 - [✓] Enable/Disable detailedErrors mode in console.
 - [✓] Remote logging
+- [✗] Cross browser support (Partially fixed)
 - [✗] Add extra parameter to console with a bug report link where stacktrace will be passed as GET params to the desired action/controller where developer can log their bugs.
-- [✗] Add notifications on the page if exception raises.
-- [✗] Add stacktrace to these notifications.
+- [✗] Add notifications on the page if any exception.
 
 ...will add some more stuff to make debugging easy.
 
