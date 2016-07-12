@@ -154,7 +154,3 @@ var Logerr = function() {
     init: init
   }
 }();
-
-Logerr.init();
-
-var test = a + 1;
