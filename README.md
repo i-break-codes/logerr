@@ -1,5 +1,5 @@
 # logerr
-Logerr or Log Error. Playing with console errors, experimental project. Developing for Chrome, might fail on other browsers as of now.
+Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge. Formatting of the console message might mess up but rest works well.
 
 #### Online Demo
 [View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
@@ -23,9 +23,7 @@ Download `logerr.js` and follow the setup instructions below.
 ---
 
 #### Setup
-Just include `logerr.js` file in the `<head>` section of your page, before you include any other JavaScript. To initialize logerr, use `Logerr.init()`
-
-Initialize it before you include other JavaScript on your page.
+Just include `logerr.js` file and the `init()` i.e initializer in the `<head>` section of your page, before you include any other JavaScript. `init()` will initialize the lib, where later you can pass an object to customize.
 
 ```html
 <!DOCTYPE html>
