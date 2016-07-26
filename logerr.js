@@ -8,9 +8,8 @@
  * @version    1.0.1 Beta
  */
  
-'use strict';
-
 var Logerr = function() {
+  'use strict';
   
   var setConfig;
 
@@ -27,7 +26,7 @@ var Logerr = function() {
         successCallback: null,
         errorCallback: null
       }
-    }
+    };
 
     // Override with user config
     setConfig = Object.assign(config, userConfig);
@@ -73,10 +72,8 @@ var Logerr = function() {
   function _remoteLogging(e, remoteSettings) {
     if(!remoteSettings.url) {
       throw 'Provide remote URL to log errors remotely';
-      return false;
     } else if(remoteSettings.additionalParams && typeof remoteSettings.additionalParams !== 'object') {
       throw 'Invalid data type, additionalParams should be a valid object';
-      return false;
     }
     
     var http = new XMLHttpRequest();
@@ -103,7 +100,7 @@ var Logerr = function() {
           }
         }
       }
-    }
+    };
   }
   
   function _serializeData(params) {
@@ -125,20 +122,20 @@ var Logerr = function() {
       error: e.message,
       stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
       datetime: datetime
-    }
+    };
   }
   
   //Polyfill for Object.assign
   if (typeof Object.assign != 'function') {
     Object.assign = function(target) {
-      if (target == null) {
+      if (target === null) {
         throw new TypeError('Cannot convert undefined or null to object');
       }
 
       target = Object(target);
       for (var index = 1; index < arguments.length; index++) {
         var source = arguments[index];
-        if (source != null) {
+        if (source !== null) {
           for (var key in source) {
             if (Object.prototype.hasOwnProperty.call(source, key)) {
               target[key] = source[key];
@@ -152,5 +149,6 @@ var Logerr = function() {
   
   return {
     init: init
-  }
+  };
+  
 }();
