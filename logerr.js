@@ -19,6 +19,7 @@ var Logerr = function() {
     // Default configuration
     var config = {
       detailedErrors: true,
+      showNotifications: false,
       remoteLogging: false,
       remoteSettings: {
         url: null,
@@ -36,6 +37,11 @@ var Logerr = function() {
     
     // Listen to errors
     window.addEventListener('error', _listener);
+    
+    //Initialize box on load
+    if(setConfig.showNotifications) {
+      _showNotification();
+    }
   }
   
   // NOTE: Private
@@ -125,6 +131,95 @@ var Logerr = function() {
     };
   }
   
+  function _showNotification(e) {
+    if(document.head.createShadowRoot) {
+      window.addEventListener('load', function() {
+        var elm     = document.createElement('div'); 
+            elm.id  = 'logerr-notifications';
+        
+        //Build Modal
+        _constructShadowDOM(elm);
+        
+        //Insert Elm
+        var bodyElm = document.getElementsByTagName('body')[0];
+        bodyElm.insertBefore(elm, bodyElm.childNodes[0]);
+      });
+    } else {
+      console.warn("Cannot show JavaScript exceptions, ShadowDOM not found.");
+      throw 'Err';
+    }
+  }
+  
+  function _constructShadowDOM(elm) {
+    var sDOM   = elm.createShadowRoot();
+    var renderDOM = `
+      <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans); 
+        
+        * {
+          margin: 0; 
+          padding: 0; 
+          outline: 0; 
+          font-family: Open Sans; 
+          font-weight: 300; 
+          font-size: 13px;
+        }
+        
+        h3 {
+          text-align: center;
+          border-bottom: 1px solid #eee;
+          padding: 15px 0;
+          padding-top: 5px;
+        }
+        
+        h3 span {
+          color: tomato;
+        }
+        
+        #logerr-wrapper {
+          position: fixed;
+          margin: 20px; 
+          width: 280px; 
+          box-shadow: 3px 3px 8px rgba(10, 10, 10, .1); 
+          border: 1px solid #eee; 
+          display: inline-block; 
+          padding: 10px 20px; 
+          border-radius: 3px; 
+          background: #fff;
+        }
+        
+        #exception-list {
+          margin-top: 10px;
+        }
+        
+        #exception-list ul {
+          list-style-type: none;
+          color: tomato;
+        }
+        
+        #exception-list li {
+          padding: 10px 0;
+          font-size: 12px;
+        }
+      </style>
+
+      <div id="logerr-wrapper">
+        <h3><span>Logerr</span> [Exceptions Notifier]</h3>
+        <div id="exception-list">
+          <ul>
+            <li style="text-align: center;">Hooray! No Exceptions</li>
+          </ul>
+        </div>
+      </div>
+    `;
+    
+    sDOM.innerHTML = renderDOM;
+  }
+  
+  function _appendExceptions() {
+    var elm = sDOM.querySelector('#exception-list ul');
+  }
+  
   //Polyfill for Object.assign
   if (typeof Object.assign != 'function') {
     Object.assign = function(target) {
@@ -152,3 +247,13 @@ var Logerr = function() {
   };
   
 }();
+
+Logerr.init({
+  showNotifications: true,
+  remoteLogging: true,
+  remoteSettings: {
+    url: 'http://localhost:4000/push/local'
+  }
+});
+
+var test = c;
