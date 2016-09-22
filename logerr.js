@@ -5,7 +5,7 @@
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version    1.0.1 Beta
+ * @version    1.2 Stable
  */
  
 var Logerr = function() {
