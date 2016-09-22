@@ -5,7 +5,7 @@
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version    1.0.1 Beta
+ * @version    1.2 Stable
  */
  
 var Logerr = function() {
@@ -112,6 +112,10 @@ var Logerr = function() {
   function _errorData(e) {
     var filename = e.filename.lastIndexOf('/');
     var datetime = new Date().toString();
+    
+    /**
+     * userAgent only for POST request purposes, not required in pretty print
+     */
 
     return {
       type: e.type,
@@ -121,7 +125,8 @@ var Logerr = function() {
       column: e.colno,
       error: e.message,
       stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
-      datetime: datetime
+      datetime: datetime,
+      userAgent: navigator.userAgent || window.navigator.userAgent
     };
   }
   
