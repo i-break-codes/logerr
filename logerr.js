@@ -126,7 +126,7 @@ var Logerr = function() {
       error: e.message,
       stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
       datetime: datetime,
-      userAgent: navigator.userAgent
+      userAgent: navigator.userAgent || window.navigator.userAgent
     };
   }
   
