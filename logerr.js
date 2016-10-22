@@ -5,7 +5,7 @@
  * @author     Vaibhav Mehta <vaibhav@decodingweb.com>
  * @copyright  Copyright (c) 2016 Vaibhav Mehta <https://github.com/i-break-codes>
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version    1.0.1 Beta
+ * @version    1.2 Stable
  */
  
 var Logerr = function() {
@@ -65,8 +65,12 @@ var Logerr = function() {
       "%cDebug : %c" + i.path + ':' + i.line,
       "%cGet Help: " + "%c" + helpPath
     ].join("\n");
-
-    console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;","font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
+    
+    if(window.chrome) {
+      console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;","font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
+    } else {
+      console.log(str.replace(/%c/gi, ''));
+    }
   }
   
   function _remoteLogging(e, remoteSettings) {
@@ -112,6 +116,10 @@ var Logerr = function() {
   function _errorData(e) {
     var filename = e.filename.lastIndexOf('/');
     var datetime = new Date().toString();
+    
+    /**
+     * userAgent only for POST request purposes, not required in pretty print
+     */
 
     return {
       type: e.type,
@@ -121,7 +129,8 @@ var Logerr = function() {
       column: e.colno,
       error: e.message,
       stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
-      datetime: datetime
+      datetime: datetime,
+      userAgent: navigator.userAgent || window.navigator.userAgent
     };
   }
   

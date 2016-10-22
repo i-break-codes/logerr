@@ -1,5 +1,6 @@
-# logerr
-Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge. Formatting of the console message might mess up but rest works well.
+![alt tag](http://i.imgur.com/rVWDzcC.png)
+
+Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge.
 
 #### Online Demo
 [View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
@@ -7,7 +8,7 @@ Logerr or Log Error. Playing with console errors, experimental project. Started 
 ---
 
 #### What does it do?
-Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling `remoteLogging` feature of logerr. By enabling `remoteLogging`, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
+Provides JavaScript error details in a readable format. You can log these errors remotely by enabling `remoteLogging`. After enabling, logerr will send a post request to the desired action/url with exception details along with custom parameters (if provided using `additionalParams`).
 
 ---
 
@@ -84,10 +85,9 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 
 #### Roadmap
 - [✓] Enable/Disable detailedErrors mode in console.
-- [✓] Remote logging
-- [✗] Cross browser support (Partially fixed)
-- [✗] Add extra parameter to console with a bug report link where stacktrace will be passed as GET params to the desired action/controller where developer can log their bugs.
-- [✗] Add notifications on the page if any exception.
+- [✓] Remote logging by sending post request
+- [✓] Cross browser support (Partially fixed)
+- [✗] Add notifications on the page if any exception. (in progress)
 
 ...will add some more stuff to make debugging easy.
 
