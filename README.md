@@ -1,4 +1,4 @@
-<img src="http://i.imgur.com/rVWDzcC.png" style="display: block; margin: auto; padding: 20px 0;">
+![alt tag](http://i.imgur.com/rVWDzcC.png)
 
 Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge.
 
