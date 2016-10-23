@@ -1,16 +1,16 @@
 ![alt tag](http://i.imgur.com/rVWDzcC.png)
 
+#### [New] Logerr Remote Application (NodeJS)
+Now log exceptions remotely.. Basic application for now but will add some powerful features soon. (Powered by NodeJS)
+
+[View](https://github.com/i-break-codes/logerr-remote)
+
+---
+
 Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge.
 
 #### Online Demo
 [View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
-
----
-
-#### Checkout Logerr Remote
-Now log exceptions remotely.. Basic application for now but will add some powerful features soon. (Powered by NodeJS)
-
-[View](https://github.com/i-break-codes/logerr-remote)
 
 ---
 
