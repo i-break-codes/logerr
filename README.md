@@ -50,7 +50,7 @@ Just include `logerr.js` file and the `init()` i.e initializer in the `<head>` s
 //Request type is POST
 
 Logerr.init({
-  remoteLogging: true,
+  remoteLogging: true, //Checkout https://github.com/i-break-codes/logerr-remote
   remoteSettings: {
     url: 'REMOTE_URL',
     additionalParams: {
