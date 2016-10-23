@@ -5,10 +5,12 @@ Logerr or Log Error. Playing with console errors, experimental project. Started 
 #### Online Demo
 [View](https://i-break-codes.github.io/logerr/) (Don't forget to open your dev console)
 
+---
+
 #### Checkout Logerr Remote
 Now log exceptions remotely.. Basic application for now but will add some powerful features soon. (Powered by NodeJS)
 
-[View](https://i-break-codes.github.io/logerr-remote/)
+[View](https://github.com/i-break-codes/logerr-remote)
 
 ---
 
