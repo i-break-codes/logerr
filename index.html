@@ -37,9 +37,7 @@
       
       <section>
         <h3>What does it do?</h3>
-        <p>
-          Provides JavaScript error details in a readable format. Recently added a feature where developers can log messages on their remote server by enabling <span class="inline-code">remoteLogging</span> feature of logerr. By enabling <span class="inline-code">remoteLogging</span>, logerr will send a post request to desired action/url with JavaScript error details along with custom parameters if required.
-        </p>
+        <p>Provides JavaScript error details in a readable format. You can log these errors remotely by enabling <span class="inline-code">remoteLogging</span>. After enabling, logerr will send a post request to the desired action/url with exception details along with custom parameters (if provided using <span class="inline-code">additionalParams</span>).</p>
       </section>
       
       <section>
@@ -106,6 +104,7 @@
   }
 });
 </code>
+<p>Check out <a href="https://github.com/i-break-codes/logerr-remote">logerr-remote</a> for logging exceptions remotely.</p>
       </section>
       
       <hr>
