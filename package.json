@@ -1,0 +1,28 @@
+{
+  "name": "logerr",
+  "version": "1.2.1",
+  "description": "![alt tag](http://i.imgur.com/rVWDzcC.png)",
+  "main": "logerr.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i-break-codes/logerr.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i-break-codes/logerr/issues"
+  },
+  "homepage": "https://github.com/i-break-codes/logerr",
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.15.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-todo": "^5.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9"
+  }
+}

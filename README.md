@@ -56,10 +56,10 @@ Just include `logerr.js` file and the `init()` i.e initializer in the `<head>` s
 > Make sure you have CORS enabled if logging cross-domain.
 
 ```javascript
-//Request type is POST
+// Request type is POST
 
 Logerr.init({
-  remoteLogging: true, //Checkout https://github.com/i-break-codes/logerr-remote
+  remoteLogging: true, // Checkout https://github.com/i-break-codes/logerr-remote
   remoteSettings: {
     url: 'REMOTE_URL',
     additionalParams: {
@@ -84,13 +84,13 @@ Also checkout Logerr Remote to log these exceptions remotely. (Powered by NodeJS
 
 #### Default Configuration & Datatypes
 ```javascript
-detailedErrors: true          //Boolean true/false, optional
-remoteLogging: false          //Boolean true/false, optional
-remoteSettings: {             //Object {}, required if remoteLogging is set to true
-  url: null,                  //String '', required if remoteLogging is set to true
-  additionalParams: null,     //Object {}, optional
-  successCallback: null,      //function() {}, optional
-  errorCallback: null         //function() {}, optional
+detailedErrors: true          // Boolean true/false, optional
+remoteLogging: false          // Boolean true/false, optional
+remoteSettings: {             // Object {}, required if remoteLogging is set to true
+  url: null,                  // String '', required if remoteLogging is set to true
+  additionalParams: null,     // Object {}, optional
+  successCallback: null,      // function() {}, optional
+  errorCallback: null         // function() {}, optional
 }
 
 ```
