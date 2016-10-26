@@ -7,15 +7,15 @@
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @version    1.2 Stable
  */
- 
+
 var Logerr = function() {
   'use strict';
-  
+
   var setConfig;
 
   function init(userConfig) {
     if(!userConfig) userConfig = {};
-    
+
     // Default configuration
     var config = {
       detailedErrors: true,
@@ -30,20 +30,20 @@ var Logerr = function() {
 
     // Override with user config
     setConfig = Object.assign(config, userConfig);
-    
+
     //Remove current listener
     window.removeEventListener('error', _listener);
-    
+
     // Listen to errors
     window.addEventListener('error', _listener);
   }
-  
+
   // NOTE: Private
   function _listener(e) {
     if(setConfig.detailedErrors) {
       _detailedErrors(e);
     }
-    
+
     if(setConfig.remoteLogging) {
       _remoteLogging(e, setConfig.remoteSettings);
     }
@@ -65,27 +65,27 @@ var Logerr = function() {
       "%cDebug : %c" + i.path + ':' + i.line,
       "%cGet Help: " + "%c" + helpPath
     ].join("\n");
-    
+
     if(window.chrome) {
       console.log(str, "font-weight: bold;", "color: #e74c3c;", "font-weight: bold;", "font-weight: normal; color: #e74c3c;","font-weight: bold;", "font-weight: normal; color: #e74c3c;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal;", "font-weight: bold;", "font-weight: normal; color: #3498db;");
     } else {
       console.log(str.replace(/%c/gi, ''));
     }
   }
-  
+
   function _remoteLogging(e, remoteSettings) {
     if(!remoteSettings.url) {
       throw 'Provide remote URL to log errors remotely';
     } else if(remoteSettings.additionalParams && typeof remoteSettings.additionalParams !== 'object') {
       throw 'Invalid data type, additionalParams should be a valid object';
     }
-    
+
     var http = new XMLHttpRequest();
     var url = remoteSettings.url;
     var data = _errorData(e);
     var setData = Object.assign(data, remoteSettings.additionalParams);
     var params = _serializeData(setData);
-    
+
     http.open("POST", url, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(params);
@@ -106,17 +106,17 @@ var Logerr = function() {
       }
     };
   }
-  
+
   function _serializeData(params) {
     return Object.keys(params).map(function(k) {
       return encodeURIComponent(k) + "=" + encodeURIComponent(params[k]);
     }).join('&');
   }
-  
+
   function _errorData(e) {
     var filename = e.filename.lastIndexOf('/');
     var datetime = new Date().toString();
-    
+
     /**
      * userAgent only for POST request purposes, not required in pretty print
      */
@@ -133,7 +133,7 @@ var Logerr = function() {
       userAgent: navigator.userAgent || window.navigator.userAgent
     };
   }
-  
+
   //Polyfill for Object.assign
   if (typeof Object.assign != 'function') {
     Object.assign = function(target) {
@@ -155,9 +155,9 @@ var Logerr = function() {
       return target;
     };
   }
-  
+
   return {
     init: init
   };
-  
+
 }();
