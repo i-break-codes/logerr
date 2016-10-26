@@ -75,9 +75,9 @@ var Logerr = function() {
 
   function _remoteLogging(e, remoteSettings) {
     if(!remoteSettings.url) {
-      throw 'Provide remote URL to log errors remotely';
+      throw new Error('Provide remote URL to log errors remotely');
     } else if(remoteSettings.additionalParams && typeof remoteSettings.additionalParams !== 'object') {
-      throw 'Invalid data type, additionalParams should be a valid object';
+      throw new Error('Invalid data type, additionalParams should be a valid object');
     }
 
     var http = new XMLHttpRequest();
@@ -100,7 +100,7 @@ var Logerr = function() {
           if(remoteSettings.errorCallback) {
             remoteSettings.errorCallback();
           } else {
-            throw 'Remote error logging failed!';
+            throw new Error('Remote error logging failed!');
           }
         }
       }
