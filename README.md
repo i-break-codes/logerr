@@ -12,7 +12,14 @@ Provides JavaScript error details in a readable format. You can log these errors
 
 ---
 
-#### Install via :- 
+#### Install via :-
+
+#### CDN
+**Development [Unminified]**
+> https://cdnjs.cloudflare.com/ajax/libs/logerr/1.2.0/logerr.js
+
+**Production [Minified]**
+> https://cdnjs.cloudflare.com/ajax/libs/logerr/1.2.0/logerr.min.js
 
 #### [Bower](https://bower.io/)
 > bower install logerr
@@ -50,7 +57,7 @@ Just include `logerr.js` file and the `init()` i.e initializer in the `<head>` s
 //Request type is POST
 
 Logerr.init({
-  remoteLogging: true,
+  remoteLogging: true, //Checkout https://github.com/i-break-codes/logerr-remote
   remoteSettings: {
     url: 'REMOTE_URL',
     additionalParams: {
@@ -65,6 +72,11 @@ Logerr.init({
   }
 });
 ```
+
+Also checkout Logerr Remote to log these exceptions remotely. (Powered by NodeJS)
+
+[View](https://github.com/i-break-codes/logerr-remote)
+
 
 ---
 
