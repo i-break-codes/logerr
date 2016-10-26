@@ -12,7 +12,14 @@ Provides JavaScript error details in a readable format. You can log these errors
 
 ---
 
-#### Install via :- 
+#### Install via :-
+
+#### CDN
+**Development [Unminified]**
+> https://cdnjs.cloudflare.com/ajax/libs/logerr/1.2.0/logerr.js
+
+**Production [Minified]**
+> https://cdnjs.cloudflare.com/ajax/libs/logerr/1.2.0/logerr.min.js
 
 #### [Bower](https://bower.io/)
 > bower install logerr
