@@ -1,5 +1,7 @@
 ![alt tag](http://i.imgur.com/rVWDzcC.png)
 
+[![CDNJS](https://img.shields.io/cdnjs/v/logerr.svg)](https://cdnjs.com/libraries/logerr)
+
 Logerr or Log Error. Playing with console errors, experimental project. Started developing for Chrome but now it supports Internet Explorer as well as Edge.
 
 #### Online Demo
