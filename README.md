@@ -14,7 +14,7 @@ Provides JavaScript error details in a readable format. You can log these errors
 
 ---
 
-#### Install via :-
+#### Install:
 
 #### CDN
 **Development [Unminified]**
@@ -23,8 +23,17 @@ Provides JavaScript error details in a readable format. You can log these errors
 **Production [Minified]**
 > https://cdnjs.cloudflare.com/ajax/libs/logerr/1.2.0/logerr.min.js
 
+#### [npm](http://npmjs.com)
+
+```bash
+npm install i-break-codes/logerr
+```
+
 #### [Bower](https://bower.io/)
-> bower install logerr
+
+```bash
+bower install logerr
+```
 
 #### Manually
 
@@ -98,10 +107,10 @@ remoteSettings: {             //Object {}, required if remoteLogging is set to t
 ---
 
 #### Roadmap
-- [✓] Enable/Disable detailedErrors mode in console.
-- [✓] Remote logging by sending post request
-- [✓] Cross browser support (Partially fixed)
-- [✗] Add notifications on the page if any exception. (in progress)
+- [x] Enable/Disable detailedErrors mode in console.
+- [x] Remote logging by sending post request
+- [x] Cross browser support (Partially fixed)
+- [ ] Add notifications on the page if any exception. (in progress)
 
 ...will add some more stuff to make debugging easy.
 
